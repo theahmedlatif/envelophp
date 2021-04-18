@@ -1,7 +1,7 @@
 {
     "name": "talmira/envelophp",
     "description": "Parse dotenv file for native php applications",
-    "type": "library",
+    "type": "composer-plugin",
     "license": "MIT",
     "authors": [
         {
