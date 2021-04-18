@@ -7,6 +7,7 @@ require_once dirname(__DIR__,1).'\src\env.php';
 
 class MysqlDB extends EnvironmentVariables {
     private $host;
+    private $database_dsn;
     private $database_name;
     private $username;
     private $password;
@@ -16,6 +17,7 @@ class MysqlDB extends EnvironmentVariables {
     {
         $variables = $this->getDatabaseVariables();
         $this->host = $variables['HOST'];
+        $this->database_dsn = $variables['DATABASE_DSN'];
         $this->database_name = $variables['DATABASE_NAME'];
         $this->username = $variables['DATABASE_USERNAME'];
         $this->password = $variables['DATABASE_PASSWORD'];
@@ -24,7 +26,7 @@ class MysqlDB extends EnvironmentVariables {
     public function getConnection() {
         $this->conn = null;
         try {
-            $this->conn = new PDO("mysql:host=" . $this->host.
+            $this->conn = new PDO($this->database_dsn.":host=" . $this->host.
             ";dbname=" . $this->database_name, $this->username, $this->password);
             $this->conn->exec("set names utf8");
         }catch (PDOException $exception){

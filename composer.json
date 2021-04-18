@@ -1,0 +1,7 @@
+{
+  "name": "talmira/envelophp",
+  "description": "Parsing and managing environment variables",
+  "require": {
+    "php": ">=7.4"
+  }
+}
