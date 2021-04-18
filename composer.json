@@ -1,7 +1,23 @@
 {
-  "name": "talmira/envelophp",
-  "description": "Parsing and managing environment variables",
-  "require": {
-    "php": ">=7.4"
-  }
+    "name": "talmira/envelophp",
+    "description": "Parse dotenv file for native php applications",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "theahmedlatif",
+            "email": "ahmed.hlatif@outlook.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.2"
+    },
+    "autoload": {
+        "psr-0": {
+            "Tal": "src/",
+            "Tal\\Database\\": "config/",
+            "Tal\\Tests\\Unit\\": "tests/unit/"
+        }
+    }
 }
