@@ -1,7 +1,7 @@
 {
     "name": "talmira/envelophp",
     "description": "Parse dotenv file for native php applications",
-    "type": "composer-plugin",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -14,10 +14,13 @@
         "php": ">=7.2"
     },
     "autoload": {
-        "psr-0": {
+        "psr-4": {
             "Tal": "src/",
             "Tal\\Database\\": "config/",
             "Tal\\Tests\\Unit\\": "tests/unit/"
         }
+    },
+    "config": {
+        "vendor-dir": "~"
     }
 }
