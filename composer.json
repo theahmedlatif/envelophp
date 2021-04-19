@@ -21,6 +21,6 @@
         }
     },
     "config": {
-        "vendor-dir": "~"
+        "vendor-dir": "../../.."
     }
 }
