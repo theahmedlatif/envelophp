@@ -9,6 +9,7 @@
             "email": "ahmed.hlatif@outlook.com"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7.2"
     },
@@ -18,8 +19,5 @@
             "Tal\\Database\\": "config/",
             "Tal\\Tests\\Unit\\": "tests/unit/"
         }
-    },
-    "config": {
-        "vendor-dir": "../../.."
     }
 }
