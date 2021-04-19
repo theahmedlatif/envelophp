@@ -1,7 +1,7 @@
 <?php
 namespace  Tal\Tests\Unit;
 use Tal\Database\MysqlDB;
-require_once dirname(__DIR__,2).'\config\database.php';
+require_once dirname(__DIR__, 1) . '\config\database.php';
 
 class MysqlDBTest extends MysqlDB
 {
