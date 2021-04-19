@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Tal": "src/",
+            "Tal\\": "src/",
             "Tal\\Database\\": "config/",
             "Tal\\Tests\\Unit\\": "tests/unit/"
         }
