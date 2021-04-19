@@ -9,7 +9,7 @@
             "email": "ahmed.hlatif@outlook.com"
         }
     ],
-    "minimum-stability": "v0.1.0",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7.2"
     },
