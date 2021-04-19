@@ -14,7 +14,7 @@ class EnvironmentVariables{
     {
         try {
             //open .env file in read mode
-            $file = fopen(dirname(__DIR__,1).'\.env',"r");
+            $file = fopen(dirname(__DIR__,4).'\.env',"r");
 
             while (($line = fgets($file)) !== false)
             {
