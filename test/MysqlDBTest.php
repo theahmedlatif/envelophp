@@ -1,9 +1,9 @@
 <?php
 namespace  Envelope\Tests\Unit;
-use Envelope\Database\MysqlDB;
-require_once dirname(__DIR__, 1) . '\config\database.php';
+use Envelope\Database\MysqlDatabase;
+require_once dirname(__DIR__, 1) . '\config\MysqlDatabase.php';
 
-class MysqlDBTest extends MysqlDB
+class MysqlDBTest extends MysqlDatabase
 {
     public function testMysqlDBConnection()
     {

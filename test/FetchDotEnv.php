@@ -1,9 +1,9 @@
 <?php
 namespace  Envelope\Tests\Unit;
-use Envelope\EnvironmentVariables;
-require_once dirname(__DIR__, 1) . '\src\env.php';
+use Envelope\Envelope;
+require_once dirname(__DIR__, 1) . '\src\Envelope.php';
 
-class FetchDotEnv extends EnvironmentVariables{
+class FetchDotEnv extends Envelope{
     public function testEnvironmentVariablesFetching()
     {
         if ($this->getDatabaseVariables())

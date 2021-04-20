@@ -1,11 +1,11 @@
 <?php
 namespace Envelope\Database;
-use Envelope\EnvironmentVariables;
+use Envelope\Envelope;
 use PDO;
 use PDOException;
-require_once dirname(__DIR__,1).'/src/env.php';
+require_once dirname(__DIR__, 1) . '/src/Envelope.php';
 
-class MysqlDB extends EnvironmentVariables {
+class MysqlDatabase extends Envelope {
     private $host;
     private $database_dsn;
     private $database_name;

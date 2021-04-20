@@ -15,10 +15,9 @@
     },
     "autoload": {
         "psr-4": {
-            "Envelope\\": "src/",
-            "Envelope\\Database\\": "config/",
+            "Envelope\\": "src/Envelope.php",
+            "Envelope\\Database\\": "config/MysqlDatabase.php",
             "Envelope\\Tests\\Unit\\": "test/"
-        },
-        "classmap": []
+        }
     }
 }
