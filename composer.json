@@ -15,8 +15,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Envelope\\": "src/Envelope.php",
-            "Envelope\\Database\\": "config/MysqlDatabase.php",
+            "Envelope\\": "src/",
+            "Envelope\\Database\\": "config/",
             "Envelope\\Tests\\Unit\\": "test/"
         }
     }
