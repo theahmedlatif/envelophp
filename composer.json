@@ -15,12 +15,10 @@
     },
     "autoload": {
         "psr-4": {
-            "Tal\\": "src/",
-            "Tal\\Database\\": "config/",
-            "Tal\\Tests\\Unit\\": "tests/unit/"
-        }
-    },
-    "config": {
-        "vendor-dir": "~"
+            "Envelope\\": "src/",
+            "Envelope\\Database\\": "config/",
+            "Envelope\\Tests\\Unit\\": "test/"
+        },
+        "classmap": []
     }
 }

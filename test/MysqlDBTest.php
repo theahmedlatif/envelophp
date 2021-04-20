@@ -1,6 +1,6 @@
 <?php
-namespace  Tal\Tests\Unit;
-use Tal\Database\MysqlDB;
+namespace  Envelope\Tests\Unit;
+use Envelope\Database\MysqlDB;
 require_once dirname(__DIR__, 1) . '\config\database.php';
 
 class MysqlDBTest extends MysqlDB

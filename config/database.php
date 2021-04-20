@@ -1,9 +1,9 @@
 <?php
-namespace Tal\Database;
-use Tal\EnvironmentVariables;
+namespace Envelope\Database;
+use Envelope\EnvironmentVariables;
 use PDO;
 use PDOException;
-require_once dirname(__DIR__,1).'\src\env.php';
+require_once dirname(__DIR__,1).'/src/env.php';
 
 class MysqlDB extends EnvironmentVariables {
     private $host;

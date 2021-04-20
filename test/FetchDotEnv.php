@@ -1,9 +1,9 @@
 <?php
-namespace  Tal\Tests\Unit;
-use Tal\EnvironmentVariables;
+namespace  Envelope\Tests\Unit;
+use Envelope\EnvironmentVariables;
 require_once dirname(__DIR__, 1) . '\src\env.php';
 
-class FetchingEnvVarTest extends EnvironmentVariables{
+class FetchDotEnv extends EnvironmentVariables{
     public function testEnvironmentVariablesFetching()
     {
         if ($this->getDatabaseVariables())
@@ -17,5 +17,5 @@ class FetchingEnvVarTest extends EnvironmentVariables{
     }
 }
 
-$readyTestCase = new FetchingEnvVarTest();
+$readyTestCase = new FetchDotEnv();
 var_dump($readyTestCase->getDatabaseVariables());
