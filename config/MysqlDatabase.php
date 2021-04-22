@@ -1,17 +1,22 @@
 <?php
+
 namespace Envelope\Database;
+
 use Envelope\Envelope;
 use PDO;
 use PDOException;
+
 require_once dirname(__DIR__, 1) . '/src/Envelope.php';
 
-class MysqlDatabase extends Envelope {
+class MysqlDatabase extends Envelope
+{
+    public $conn;
     private $host;
     private $database_dsn;
     private $database_name;
     private $username;
     private $password;
-    public $conn;
+
 
     public function __construct()
     {
@@ -23,16 +28,34 @@ class MysqlDatabase extends Envelope {
         $this->password = $variables['DATABASE_PASSWORD'];
     }
 
-    public function getConnection() {
+    public function createDatabase()
+    {
+        try {
+            $database = new PDO("$this->database_dsn:host=$this->host", $this->username, $this->password);
+            $mysqlStatement = "  CREATE DATABASE $this->database_name CHARACTER SET utf8 COLLATE utf8_unicode_ci;";
+            return ($database->exec($mysqlStatement));
+
+        } catch (PDOException $exception) {
+            return "DB ERROR: " . $exception->getMessage();
+        }
+    }
+
+    public function getConnection()
+    {
         $this->conn = null;
         try {
-            $this->conn = new PDO($this->database_dsn.":host=" . $this->host.
-            ";dbname=" . $this->database_name, $this->username, $this->password);
+            $this->conn = new PDO($this->database_dsn . ":host=" . $this->host .
+                ";dbname=" . $this->database_name, $this->username, $this->password);
             $this->conn->exec("set names utf8");
-        }catch (PDOException $exception){
+        } catch (PDOException $exception) {
             echo "Couldn't connect to database: " . $exception->getMessage();
         }
         return $this->conn;
+    }
+
+    public function closeConnection()
+    {
+        return $this->conn = null;
     }
 }
 
