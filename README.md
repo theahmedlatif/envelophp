@@ -15,12 +15,18 @@ ___
 [![Latest Unstable Version](https://poser.pugx.org/talmira/envelophp/v/unstable)](//packagist.org/packages/talmira/envelophp) 
 [![Total Downloads](https://poser.pugx.org/talmira/envelophp/downloads)](//packagist.org/packages/talmira/envelophp) 
 
+
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/theahmedlatif/envelophp)
+![License](https://img.shields.io/badge/support-mysql-blue)
+
 </div>
 
 # What is envelophp?
 *This package will help you to keep your database in one place and use them across your native php application.* <br>
 
 *envelophp use .env file to store database credentials and parse its content to be used in database connection.*
+
+__*Currently, envelophp supports mysql databases only.*__
 
 # Installation
 Simple installation using [Composer](https://getcomposer.org/):
@@ -43,6 +49,8 @@ Navigate to your project root folder then create .env file using one of the foll
 ```shell script
    wget --output-document=.env --no-check-certificate --content-disposition https://gist.github.com/theahmedlatif/3c5c7fd454f48898d7660bef555aca31/raw
 ```
+**YOU MUST ADD .env  TO YOUR .gitignore FILE TO AVOID PUBLISHING YOUR CREDENTIALS TO THE PUBLIC**
+
 - #### Modify .env file:
 ```dotenv
 #Database#
@@ -69,7 +77,18 @@ php vendor/talmira/envelophp/test/MysqlDBTest.php
 
 # Usage
 
-#### 1- Create Connection
+#### 1- Create Database
+- So if you don't have a created Database you can use this secondary feature of envelophp, `createDatabase()` uses database_name mentioned in .env file to create Mysql Database.
+```php
+<?php
+require_once dirname(__FILE__).'/vendor/autoload.php';
+use Envelope\Database\MysqlDatabase;
+
+$database = new MysqlDatabase();
+$database->createDatabase();
+```
+
+#### 2- Create Connection
 - Simply require autoload.php in your file where you want to connect to your database.
 - Then use the `MysqlDatabase` namespace
 - Now you are ready to create a new instance of `MysqlDatabase`.
@@ -84,7 +103,7 @@ $database = new MysqlDatabase();
 $database->getConnection();
 ```
 
-#### 2- Close database connection by calling `closeConnection()` method:
+#### 3- Close database connection by calling `closeConnection()` method:
 
 ```php
 $database->closeConnection();

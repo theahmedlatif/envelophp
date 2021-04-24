@@ -28,6 +28,17 @@ class MysqlDatabase extends Envelope
         $this->password = $variables['DATABASE_PASSWORD'];
     }
 
+    public function createDatabase()
+    {
+        try {
+            $database = new PDO("$this->database_dsn:host=$this->host", $this->username, $this->password);
+            $mysqlStatement = "  CREATE DATABASE $this->database_name CHARACTER SET utf8 COLLATE utf8_unicode_ci;";
+            return ($database->exec($mysqlStatement));
+
+        } catch (PDOException $exception) {
+            return "DB ERROR: " . $exception->getMessage();
+        }
+    }
 
     public function getConnection()
     {

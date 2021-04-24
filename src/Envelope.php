@@ -16,12 +16,12 @@ class Envelope
     {
         try {
             //open .env file in read mode
-            $file = fopen(dirname(__DIR__, 4) . '/.env', "r");
+            $file = fopen(dirname(__DIR__, 1) . '/.env', "r");
 
             while (($line = fgets($file)) !== false) {
                 $validate_line_from_env_file = preg_match('~^[a-zA-Z]~', $line);
                 if ($validate_line_from_env_file) {
-                    $env_file_text = explode('= "', $line); //split string from .env file to key & value
+                    $env_file_text = explode('= "', $line);
                     $env_variable_key_length = strpos($env_file_text[0], " ");
                     $env_variable_key = substr($env_file_text[0], 0, $env_variable_key_length);
                     $env_variable_value_length = strpos($env_file_text[1], "\"");
