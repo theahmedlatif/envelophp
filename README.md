@@ -67,24 +67,33 @@ php vendor/talmira/envelophp/test/MysqlDBTest.php
 ```
 
 # Usage
-Simply require autoload.php in your file where you want to connect to your database as below:
+
+1- Simply require autoload.php in your file where you want to connect to your database as below:
+
 ```php
 require_once dirname(__FILE__).'/vendor/autoload.php';
 ```
 
-Then use the MysqlDatabase namespace:
+2- Then use the MysqlDatabase namespace:
+
 ```php
 use Envelope\Database\MysqlDatabase;
 ```
-Now you are ready to create a new instance of `MysqlDatabase` where database connection is needed:
+
+3- Now you are ready to create a new instance of `MysqlDatabase` where database connection is needed:
+
 ```php
 $database = new MysqlDatabase();
 ```
-to make a database connection call `getConnection()` method:
+
+4- to make a database connection call `getConnection()` method:
+
 ```php
 $database->getConnection();
 ```
-to close database connection call `closeConnection()` method:
+
+5- to close database connection call `closeConnection()` method:
+
 ```php
 $database->closeConnection();
 ```
