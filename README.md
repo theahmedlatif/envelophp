@@ -31,17 +31,19 @@ composer require talmira/envelophp
 - #### Create .env file:
 Navigate to your project root folder then create .env file using one of the following methods:
 
-    1. Use curl to create .env file
-    ```Bash
-      curl -LJ -o ".env" https://gist.github.com/theahmedlatif/3c5c7fd454f48898d7660bef555aca31/raw
-    ```
-    
-    2. Use wget to create .env file
-    ```Bash
-       wget --output-document=.env --no-check-certificate --content-disposition https://gist.github.com/theahmedlatif/3c5c7fd454f48898d7660bef555aca31/raw
-    ```
+1- Use curl to create .env file
+
+```php
+  curl -LJ -o ".env" https://gist.github.com/theahmedlatif/3c5c7fd454f48898d7660bef555aca31/raw
+```
+
+2- Use wget to create .env file
+
+```php
+   wget --output-document=.env --no-check-certificate --content-disposition https://gist.github.com/theahmedlatif/3c5c7fd454f48898d7660bef555aca31/raw
+```
 - #### Modify .env file:
-```Bash
+```php
 #Database#
 HOST = "localhost"
 DATABASE_DSN = "mysql"
@@ -54,13 +56,13 @@ DATABASE_PASSWORD = "sample_password"
 envelophp provides its own unit test cases:
 - #### Fetch information from .env:
 this test case validate .env file location is the pointed location by Envelope Class and ability to read variables.
-```Bash
+```php
 php vendor/talmira/envelophp/test/FetchDotEnv.php
 ```
 
 - #### Test database connection:
 this test case test database connection using .env variables.
-```Bash
+```php
 php vendor/talmira/envelophp/test/MysqlDBTest.php
 ```
 
