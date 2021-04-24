@@ -12,8 +12,9 @@ ___
 [![GitHub issues](https://img.shields.io/github/issues/theahmedlatif/envelophp)](https://github.com/theahmedlatif/envelophp/issues)
 
 [![Latest Stable Version](https://poser.pugx.org/talmira/envelophp/v)](//packagist.org/packages/talmira/envelophp) 
-[![Total Downloads](https://poser.pugx.org/talmira/envelophp/downloads)](//packagist.org/packages/talmira/envelophp) 
 [![Latest Unstable Version](https://poser.pugx.org/talmira/envelophp/v/unstable)](//packagist.org/packages/talmira/envelophp) 
+[![Total Downloads](https://poser.pugx.org/talmira/envelophp/downloads)](//packagist.org/packages/talmira/envelophp) 
+
 </div>
 
 # What is envelophp?
@@ -23,7 +24,7 @@ ___
 
 # Installation
 Simple installation using [Composer](https://getcomposer.org/):
-```Bash
+```shell script
 composer require talmira/envelophp
 ```
 
@@ -33,17 +34,17 @@ Navigate to your project root folder then create .env file using one of the foll
 
 1- Use curl to create .env file
 
-```php
+```shell script
   curl -LJ -o ".env" https://gist.github.com/theahmedlatif/3c5c7fd454f48898d7660bef555aca31/raw
 ```
 
 2- Use wget to create .env file
 
-```php
+```shell script
    wget --output-document=.env --no-check-certificate --content-disposition https://gist.github.com/theahmedlatif/3c5c7fd454f48898d7660bef555aca31/raw
 ```
 - #### Modify .env file:
-```php
+```dotenv
 #Database#
 HOST = "localhost"
 DATABASE_DSN = "mysql"
@@ -56,44 +57,38 @@ DATABASE_PASSWORD = "sample_password"
 envelophp provides its own unit test cases:
 - #### Fetch information from .env:
 this test case validate .env file location is the pointed location by Envelope Class and ability to read variables.
-```php
+```shell script
 php vendor/talmira/envelophp/test/FetchDotEnv.php
 ```
 
 - #### Test database connection:
 this test case test database connection using .env variables.
-```php
+```shell script
 php vendor/talmira/envelophp/test/MysqlDBTest.php
 ```
 
 # Usage
 
-1- Simply require autoload.php in your file where you want to connect to your database as below:
+#### 1- Create Connection
+- Simply require autoload.php in your file where you want to connect to your database.
+- Then use the `MysqlDatabase` namespace
+- Now you are ready to create a new instance of `MysqlDatabase`.
+- to make a database connection call `getConnection()`.
 
 ```php
+<?php
 require_once dirname(__FILE__).'/vendor/autoload.php';
-```
-
-2- Then use the MysqlDatabase namespace:
-
-```php
 use Envelope\Database\MysqlDatabase;
-```
 
-3- Now you are ready to create a new instance of `MysqlDatabase` where database connection is needed:
-
-```php
 $database = new MysqlDatabase();
-```
-
-4- to make a database connection call `getConnection()` method:
-
-```php
 $database->getConnection();
 ```
 
-5- to close database connection call `closeConnection()` method:
+#### 2- Close database connection by calling `closeConnection()` method:
 
 ```php
 $database->closeConnection();
 ```
+
+# Conclusion
+using envelophp in your native php project is very simple and will apply DRY concept.
