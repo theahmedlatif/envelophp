@@ -12,8 +12,9 @@ ___
 [![GitHub issues](https://img.shields.io/github/issues/theahmedlatif/envelophp)](https://github.com/theahmedlatif/envelophp/issues)
 
 [![Latest Stable Version](https://poser.pugx.org/talmira/envelophp/v)](//packagist.org/packages/talmira/envelophp) 
-[![Total Downloads](https://poser.pugx.org/talmira/envelophp/downloads)](//packagist.org/packages/talmira/envelophp) 
 [![Latest Unstable Version](https://poser.pugx.org/talmira/envelophp/v/unstable)](//packagist.org/packages/talmira/envelophp) 
+[![Total Downloads](https://poser.pugx.org/talmira/envelophp/downloads)](//packagist.org/packages/talmira/envelophp) 
+
 </div>
 
 # What is envelophp?
@@ -83,7 +84,7 @@ $database = new MysqlDatabase();
 $database->getConnection();
 ```
 
-#### 2- to close database connection call `closeConnection()` method:
+#### 2- Close database connection by calling `closeConnection()` method:
 
 ```php
 $database->closeConnection();
