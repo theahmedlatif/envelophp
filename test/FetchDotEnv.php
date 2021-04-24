@@ -19,11 +19,7 @@ class FetchDotEnv extends Envelope
 }
 
 $readyTestCase = new FetchDotEnv();
-<<<<<<< HEAD
-var_dump($readyTestCase->testEnvironmentVariablesFetching());
-=======
+
 var_dump($readyTestCase->testEnvironmentVariablesFetching());
 
 $readyTestCase->closeConnection();
-
->>>>>>> dev
