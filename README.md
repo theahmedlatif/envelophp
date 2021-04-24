@@ -15,6 +15,9 @@ ___
 [![Latest Unstable Version](https://poser.pugx.org/talmira/envelophp/v/unstable)](//packagist.org/packages/talmira/envelophp) 
 [![Total Downloads](https://poser.pugx.org/talmira/envelophp/downloads)](//packagist.org/packages/talmira/envelophp) 
 
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/theahmedlatif/envelophp)
+![License](https://img.shields.io/badge/support-mysql-blue)
+
 </div>
 
 # What is envelophp?
@@ -22,6 +25,7 @@ ___
 
 *envelophp use .env file to store database credentials and parse its content to be used in database connection.*
 
+__*Currently, envelophp supports mysql databases only.*__
 # Installation
 Simple installation using [Composer](https://getcomposer.org/):
 ```shell script
@@ -43,6 +47,8 @@ Navigate to your project root folder then create .env file using one of the foll
 ```shell script
    wget --output-document=.env --no-check-certificate --content-disposition https://gist.github.com/theahmedlatif/3c5c7fd454f48898d7660bef555aca31/raw
 ```
+**YOU MUST ADD .env  TO YOUR .gitignore FILE TO AVOID PUBLISHING YOUR CREDENTIALS TO THE PUBLIC**
+
 - #### Modify .env file:
 ```dotenv
 #Database#
