@@ -19,7 +19,7 @@ ___
 # What is envelophp?
 *This package will help you to keep your database in one place and use them across your native php application.* <br>
 
-envelophp use .env file to store database credentials and parse its content to be used in database connection.
+*envelophp use .env file to store database credentials and parse its content to be used in database connection.*
 
 # Installation
 Simple installation using [Composer](https://getcomposer.org/):
