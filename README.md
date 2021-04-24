@@ -78,13 +78,13 @@ use Envelope\Database\MysqlDatabase;
 ```
 Now you are ready to create a new instance of `MysqlDatabase` where database connection is needed:
 ```php
-$connection = new MysqlDatabase();
+$database = new MysqlDatabase();
 ```
 to make a database connection call `getConnection()` method:
 ```php
-$connection->getConnection();
+$database->getConnection();
 ```
 to close database connection call `closeConnection()` method:
 ```php
-$connection->closeConnection();
+$database->closeConnection();
 ```
