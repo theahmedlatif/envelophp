@@ -17,6 +17,7 @@ class Envelope
         try {
             //open .env file in read mode
 <<<<<<< HEAD
+<<<<<<< HEAD
             $file = fopen(dirname(__DIR__,4).'/.env',"r");
 
             while (($line = fgets($file)) !== false)
@@ -34,6 +35,8 @@ class Envelope
                     if ($env_variable_value == true)
                     {
 =======
+=======
+>>>>>>> e61e1ba090c3406224ff59bb3223be4cf2a2541d
             $file = fopen(dirname(__DIR__, 1) . '/.env', "r");
 
             while (($line = fgets($file)) !== false) {
@@ -45,6 +48,9 @@ class Envelope
                     $env_variable_value_length = strpos($env_file_text[1], "\"");
                     $env_variable_value = substr($env_file_text[1], 0, $env_variable_value_length);
                     if ($env_variable_value == true) {
+<<<<<<< HEAD
+>>>>>>> e61e1ba090c3406224ff59bb3223be4cf2a2541d
+=======
 >>>>>>> e61e1ba090c3406224ff59bb3223be4cf2a2541d
                         $this->variables += [$env_variable_key => $env_variable_value];
                     } elseif ($env_variable_value === "") {
