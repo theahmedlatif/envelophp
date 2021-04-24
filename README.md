@@ -69,7 +69,18 @@ php vendor/talmira/envelophp/test/MysqlDBTest.php
 
 # Usage
 
-#### 1- Create Connection
+#### 1- Create Database
+- So if you don't have a created Database you can use this secondary feature of envelophp, `createDatabase()` uses database_name mentioned in .env file to create Mysql Database.
+```php
+<?php
+require_once dirname(__FILE__).'/vendor/autoload.php';
+use Envelope\Database\MysqlDatabase;
+
+$database = new MysqlDatabase();
+$database->createDatabase();
+```
+
+#### 2- Create Connection
 - Simply require autoload.php in your file where you want to connect to your database.
 - Then use the `MysqlDatabase` namespace
 - Now you are ready to create a new instance of `MysqlDatabase`.
@@ -84,7 +95,7 @@ $database = new MysqlDatabase();
 $database->getConnection();
 ```
 
-#### 2- Close database connection by calling `closeConnection()` method:
+#### 3- Close database connection by calling `closeConnection()` method:
 
 ```php
 $database->closeConnection();
