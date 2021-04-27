@@ -28,6 +28,23 @@ class MysqlDatabase extends Envelope
         $this->password = $variables['DATABASE_PASSWORD'];
     }
 
+    public function getConnection()
+    {
+        $this->conn = null;
+        try {
+            $this->conn = new PDO($this->database_dsn . ":host=" . $this->host .
+                ";dbname=" . $this->database_name, $this->username, $this->password);
+            $this->conn->exec("set names utf8");
+        } catch (PDOException $exception) {
+            echo "Couldn't connect to database: " . $exception->getMessage();
+        }
+        return $this->conn;
+    }
+
+    public function getDatabaseName()
+    {
+        return $this->database_name;
+    }
     public function createDatabase()
     {
         try {
@@ -40,17 +57,52 @@ class MysqlDatabase extends Envelope
         }
     }
 
-    public function getConnection()
+    public function insert($statement)
     {
-        $this->conn = null;
         try {
-            $this->conn = new PDO($this->database_dsn . ":host=" . $this->host .
-                ";dbname=" . $this->database_name, $this->username, $this->password);
-            $this->conn->exec("set names utf8");
+            $connection = $this->getConnection();
+            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $connection->exec($statement);
+            return "handled successfully!";
         } catch (PDOException $exception) {
-            echo "Couldn't connect to database: " . $exception->getMessage();
+            return $statement . "<br>" . $exception->getMessage();
         }
-        return $this->conn;
+    }
+
+    public function select($statement)
+    {
+        try {
+            $connection = $this->getConnection();
+            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $connection->query("$statement")->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $exception) {
+            return $statement . "<br>" . $exception->getMessage();
+        }
+    }
+
+    public function delete($statement)
+    {
+        try {
+            $connection = $this->getConnection();
+            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $connection->exec($statement);
+            return "handled successfully!";
+        } catch (PDOException $exception) {
+            return $statement . "<br>" . $exception->getMessage();
+        }
+    }
+
+    public function update($statement)
+    {
+        try {
+            $connection = $this->getConnection();
+            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $connection->exec($statement);
+            return "handled successfully!";
+        } catch (PDOException $exception) {
+            return $statement . "<br>" . $exception->getMessage();
+        }
     }
 
     public function closeConnection()

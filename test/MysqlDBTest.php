@@ -20,6 +20,9 @@ class MysqlDBTest extends MysqlDatabase
 }
 
 $readyTestCase = new MysqlDBTest();
-$readyTestCase->testMysqlDBConnection();
 
-$readyTestCase->closeConnection();
+//print_r($readyTestCase->select("SELECT * FROM museums"));
+/*$readyTestCase->insert("INSERT INTO museums (mname, arabic_name, city, type, est_year)
+VALUES ('test', 'اختبار' , 'test', 'test' , 1111)");*/
+//$readyTestCase->delete("DELETE FROM museums where id = 16");
+//$readyTestCase->update("UPDATE museums SET city = 'test city' where id = 17");
