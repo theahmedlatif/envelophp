@@ -38,7 +38,3 @@ $sql = "CREATE TABLE `$db_name`.`test_table` (
 $connection->exec($sql);
 echo "Table test created successfully";
 
-
-
-
-$readyTestCase->closeConnection();

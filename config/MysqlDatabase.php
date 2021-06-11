@@ -57,28 +57,47 @@ class MysqlDatabase extends Envelope
         }
     }
 
-    public function insert($statement)
+    public function insert($statement, $binders = "noParamas")
     {
         try {
             $connection = $this->getConnection();
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $connection->exec($statement);
-            return "handled successfully!";
+            $input = $connection->prepare($statement);
+            if($binders !== "noParams"){
+                foreach ($binders as $binderKey => &$binderValue)
+                {
+                    $input->bindParam($binderKey, $binderValue);
+                }
+            }
+            $input->execute();
+
         } catch (PDOException $exception) {
             return $statement . "<br>" . $exception->getMessage();
         }
+        return $connection->lastInsertId();
     }
 
-    public function select($statement)
+    public function select($statement,$binders = "noParams")
     {
         try {
             $connection = $this->getConnection();
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $connection->query("$statement")->fetchAll(PDO::FETCH_ASSOC);
+            $output = $connection->prepare("$statement");
+
+
+            if($binders !== "noParams"){
+                foreach ($binders as $binderKey => &$binderValue)
+                {
+                    $output->bindParam($binderKey, $binderValue);
+                }
+            }
+            $output->execute();
+            $result = $output->fetchAll(PDO::FETCH_ASSOC);
 
         } catch (PDOException $exception) {
             return $statement . "<br>" . $exception->getMessage();
         }
+        return $result;
     }
 
     public function delete($statement)
@@ -105,9 +124,9 @@ class MysqlDatabase extends Envelope
         }
     }
 
-    public function closeConnection()
+    public function __destruct()
     {
-        return $this->conn = null;
+        $this->conn = null;
     }
 }
 
